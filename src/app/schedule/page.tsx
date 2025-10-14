@@ -1,8 +1,15 @@
+'use client';
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Users } from "lucide-react";
-import { LocationMap } from "@/components/ui/location-map";
+import dynamic from "next/dynamic";
+
+const LocationMap = dynamic(() => import("@/components/ui/location-map").then(mod => ({ default: mod.LocationMap })), {
+  ssr: false,
+  loading: () => <div className="w-full h-[200px] bg-gray-100 rounded-lg flex items-center justify-center">Loading map...</div>
+});
 
 export default function Schedule() {
   const tourSchedule = [

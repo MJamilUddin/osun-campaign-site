@@ -15,13 +15,12 @@ export const FeatherColumn: React.FC<FeatherColumnProps> = ({
   const [scrollY, setScrollY] = useState(0);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [documentHeight, setDocumentHeight] = useState(3000);
-  const [windowHeight, setWindowHeight] = useState(800);
+  // Removed unused windowHeight state
 
   useEffect(() => {
     // Update dimensions
     const updateDimensions = () => {
       setDocumentHeight(document.documentElement.scrollHeight);
-      setWindowHeight(window.innerHeight);
     };
 
     // Handle scroll
